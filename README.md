@@ -1,194 +1,108 @@
-# 👨🏻‍💻 Portfolio Profesional - RobertDev
+# porfolio.dev — Robert Ruben's Personal Portfolio
 
-<div align="center">
-<a href="https://porfolio.dev/">
-<img src="./public/porfolio.webp">
-</a>
-<p></p>
-</div>
+A fast, bilingual (ES/EN) personal portfolio website built with **Astro** and deployed to a self-hosted VPS via **Docker + nginx** with a fully automated **GitHub Actions CI/CD** pipeline.
+
+🔗 **Live:** [https://www.a-robertdev.com](https://www.a-robertdev.com)
 
 <div align="center">
 
-![Astro Badge](https://img.shields.io/badge/Astro-FF3E00?logo=astro&logoColor=fff&style=flat)
-![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
-![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)
+![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat)
+![nginx](https://img.shields.io/badge/nginx-009639?logo=nginx&logoColor=fff&style=flat)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=fff&style=flat)
 
 </div>
 
-## 🚀 Características
+<!-- Screenshot: add a homepage screenshot here once available, e.g. ![Portfolio preview](./public/screenshot.webp) -->
 
-### ✨ Mejoras Profesionales Implementadas
+## Features
 
-- 🎨 **Diseño Moderno y Animado**: Animaciones suaves, transiciones fluidas y efectos hover profesionales
-- 📱 **Totalmente Responsivo**: Optimizado para todos los dispositivos (mobile-first)
-- 🌙 **Modo Oscuro**: Sistema de temas con transiciones suaves y preferencias del sistema
-- 🔍 **SEO Optimizado**: Meta tags completos, Open Graph, Twitter Cards y JSON-LD Schema
-- ⚡ **Rendimiento Excepcional**: Lighthouse 100/100, carga rápida con optimizaciones de Astro
-- ♿ **Accesible**: Cumple con estándares WCAG 2.1 AA
-- 📊 **Secciones Completas**:
-  - 🎯 Hero con badge animado de disponibilidad
-  - 💼 Experiencia laboral detallada con logros cuantificables
-  - 🚀 Proyectos destacados con etiquetas de tecnologías
-  - 🛠️ Habilidades técnicas con barras de progreso animadas
-  - 🎓 Educación y Certificaciones profesionales
-  - ⭐ Testimonios y recomendaciones de clientes/colegas
-  - 👤 Sobre mí con métricas de impacto
-  - 📥 Botón de descarga de CV
-  - 📧 Call-to-Action efectivo para networking
-- 📈 **Scroll Progress Indicator**: Barra de progreso superior
-- 🎯 **Navegación Intuitiva**: Header con detección de sección activa
-- 💼 **Enfoque Profesional**: Diseño limpio centrado en resultados y conversión
+- **Bilingual ES / EN** — instant language toggle (no page reload). Content is authored with `data-en` / `data-es` attributes and the chosen language is persisted in `localStorage`.
+- **Dark mode** — automatic theme that honors the visitor's system preference (`prefers-color-scheme`) using CSS custom properties.
+- **Responsive** — mobile-first layout with fluid typography (`clamp()`) and a properly set viewport, looks great from phones to desktops.
+- **SEO-ready** — descriptive `<title>` and meta description, Open Graph tags, a generated `robots.txt`, sitemap reference and per-bot crawl rules via `astro-robots-txt`.
+- **Fast & lightweight** — zero client-side framework; Astro ships static HTML/CSS with only a tiny vanilla-JS snippet for the language toggle.
+- **CV downloads** — bundled ES/EN résumé PDFs served as static assets.
+- **Production deployment** — multi-stage Docker build (Node for building, nginx for serving) with a container `HEALTHCHECK`.
+- **CI/CD to VPS** — push to `main` triggers a GitHub Actions workflow that builds, deploys over SSH, tags a rollback backup image, runs a health check, prunes old images, and sends Telegram notifications on start / success / failure.
+- **Ops tooling** — helper scripts for health checks (`scripts/health-check.sh`) and rollback (`scripts/rollback.sh`).
 
-### 🛠️ Tecnologías
+## Tech Stack
 
-- **Astro 4.x** - Framework web moderno
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** - Utility-first CSS
-- **Onest Font** - Tipografía variable moderna
+| Layer       | Technology |
+|-------------|------------|
+| Framework   | [Astro](https://astro.build) 5 |
+| Language    | TypeScript |
+| Styling     | Hand-written CSS with custom properties (no UI framework) |
+| Fonts       | Inter |
+| SEO         | `astro-robots-txt` (robots.txt + sitemap) |
+| Web server  | nginx (alpine) |
+| Container   | Docker (multi-stage) + Docker Compose |
+| CI/CD       | GitHub Actions → SSH deploy to VPS |
 
-## 📦 Instalación
+## Getting Started
+
+Requirements: **Node.js 22+** and npm.
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/robertruben98/porfolio.dev.git
-
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Iniciar servidor de desarrollo
+# Start the dev server (http://localhost:4321)
 npm run dev
+
+# Type-check and build for production (output in ./dist)
+npm run build
+
+# Preview the production build locally
+npm run preview
 ```
 
-### 🔑 Variables de entorno
-
-1. Copia el archivo `.env.example` a `.env`.
-2. Genera una clave pública en [Web3Forms](https://web3forms.com/).
-3. Asigna el valor a `PUBLIC_WEB3FORMS_ACCESS_KEY` para habilitar el envío de correos desde el formulario de contacto.
-
-## 🚀 Comandos
-
-| Comando                | Acción                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Instala las dependencias                         |
-| `npm run dev`          | Inicia el servidor de desarrollo en `localhost:4321` |
-| `npm run build`        | Construye el sitio para producción en `./dist/`  |
-| `npm run preview`      | Vista previa de la build antes de desplegar      |
-
-## 🐳 Docker
+### Run with Docker
 
 ```bash
-# Construir y ejecutar con Docker Compose
-docker-compose up
-
-# El sitio estará disponible en http://localhost:4321
+# Build the image and start the container (served on http://localhost:4321)
+docker compose up --build
 ```
 
-## 📝 Personalización
-
-### Modificar Información Personal
-
-1. **Hero Section** (`src/components/Hero.astro`) - Tu presentación principal
-2. **Experiencia** (`src/components/Experience.astro`) - Historial laboral y logros
-3. **Proyectos** (`src/components/Projects.astro`) - Portfolio de proyectos
-4. **Habilidades** (`src/components/Skills.astro`) - Stack tecnológico
-5. **Certificaciones** (`src/components/Certifications.astro`) - Educación y certificaciones
-6. **Testimonios** (`src/components/Testimonials.astro`) - Recomendaciones de clientes
-7. **Sobre Mí** (`src/components/AboutMe.astro`) - Biografía profesional
-
-### Cambiar Colores
-
-Los colores principales se encuentran en `tailwind.config.mjs`. El esquema usa yellow-500 como acento principal.
-
-## 🎨 Estructura del Proyecto
+## Project Structure
 
 ```
-/
-├── public/
-│   ├── favicon.svg
-│   ├── a-robertdev.webp
-│   ├── me.png
-│   └── projects/
-│       ├── svgl.webp
-│       └── adventjs.webp
+.
 ├── src/
-│   ├── components/
-│   │   ├── Hero.astro
-│   │   ├── Experience.astro
-│   │   ├── ExperienceItem.astro
-│   │   ├── Projects.astro
-│   │   ├── Skills.astro
-│   │   ├── Certifications.astro
-│   │   ├── Testimonials.astro
-│   │   ├── AboutMe.astro
-│   │   ├── CallToAction.astro
-│   │   ├── DownloadCV.astro
-│   │   ├── ScrollProgress.astro
-│   │   ├── Header.astro
-│   │   ├── Footer.astro
-│   │   ├── ThemeToggle.astro
-│   │   ├── SectionContainer.astro
-│   │   ├── Badge.astro
-│   │   ├── Card.astro
-│   │   ├── LinkButton.astro
-│   │   ├── LinkInline.astro
-│   │   ├── SocialPill.astro
-│   │   └── icons/
-│   │       ├── Briefcase.astro
-│   │       ├── Code.astro
-│   │       ├── Certificate.astro
-│   │       ├── School.astro
-│   │       ├── Star.astro
-│   │       ├── GitHub.astro
-│   │       ├── LinkedIn.astro
-│   │       ├── Mail.astro
-│   │       └── ...
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       ├── index.astro
-│       └── components.astro
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── tsconfig.json
-├── Dockerfile
+│   ├── pages/
+│   │   └── index.astro      # Single-page portfolio (ES/EN content, styles, lang toggle)
+│   └── env.d.ts
+├── public/                  # Static assets (favicon, robots.txt, CV PDFs)
+├── scripts/                 # Ops helpers (health-check.sh, rollback.sh, check-wakatime.js)
+├── docs/                    # Additional project documentation
+├── .github/workflows/       # CI/CD: build + deploy to VPS
+├── astro.config.mjs         # Astro config (site URL, robots.txt/sitemap)
+├── Dockerfile               # Multi-stage build (Node → nginx)
 ├── docker-compose.yml
-└── package.json
+└── nginx.conf               # Server config + rate limiting
 ```
 
-## 🌟 Características de SEO
+## Deployment
 
-- ✅ Meta tags completos (description, keywords, author)
-- ✅ Open Graph para redes sociales (Facebook, LinkedIn)
-- ✅ Twitter Cards para mejor compartición
-- ✅ Canonical URLs para evitar contenido duplicado
-- ✅ Robots.txt automático
-- ✅ Sitemap generado
-- ✅ JSON-LD Schema.org markup (Person, Organization)
-- ✅ Imágenes optimizadas con alt text
-- ✅ Estructura semántica HTML5
-- ✅ URLs amigables y descriptivas
+Deployment is fully automated. On every push to `main`, GitHub Actions:
 
-## 📈 Performance
+1. Installs dependencies and runs `npm run build` (type-check + build).
+2. Connects to the VPS over SSH, pulls the latest code and rebuilds the Docker image.
+3. Tags the previous image as a timestamped backup (for quick rollback).
+4. Recreates the container with zero-downtime and verifies it's healthy.
+5. Cleans up old images and notifies via Telegram (start / success / failure).
 
-- ⚡ Lighthouse Score: 100/100
-- 🎯 First Contentful Paint: < 1s
-- 🚀 Time to Interactive: < 2s
-- 📦 Bundle Size: Optimizado
+## Screenshot
 
-## 📄 Licencia
+> _Add a screenshot of the homepage here (light or dark mode) once captured — see the placeholder comment near the top of this README. Save it under `public/` and reference it with a relative path._
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+## License
 
-## 👤 Autor
-
-**Robert Ruben Benitez Bosque**
-
-- LinkedIn: [@robert-ruben-benitez-bosque](https://linkedin.com/in/robert-ruben-benitez-bosque)
-- Email: robertruben98@gmail.com
-- Portfolio: [porfolio.dev](https://porfolio.dev)
+See [`LICENSE`](./LICENSE). MIT is recommended for this codebase.
 
 ---
 
-<div align="center">
-<span>Hecho con ❤️ usando Astro y Tailwind CSS</span>
-</div>
+Built by **Robert Ruben** · [a-robertdev.com](https://www.a-robertdev.com)
+

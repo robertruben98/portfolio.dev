@@ -1,0 +1,15 @@
+# Treat shell deployment helpers as vendored so they don't skew language stats
+scripts/*.sh linguist-vendored
+
+# Exclude documentation from language detection
+*.md linguist-documentation
+docs/** linguist-documentation
+
+# Infra files are not the project's "language"
+nginx.conf linguist-vendored
+Dockerfile linguist-vendored
+docker-compose.yml linguist-vendored
+
+# Ensure Astro is detected and counted as the primary language
+*.astro linguist-language=Astro
+*.astro linguist-detectable=true
