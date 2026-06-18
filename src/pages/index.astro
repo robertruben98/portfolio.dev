@@ -1,0 +1,231 @@
+---
+const cvDefault = "/cv-robert-ruben-en.pdf"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert Ruben — Full-Stack Software Engineer (Python/Django)</title>
+  <meta name="description" content="Robert Ruben — Full-Stack Software Engineer focused on Python/Django backend: payment processing, fraud detection, real-time analytics and AI/LLM. Madrid, Spain · remote (EU)." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Robert Ruben — Full-Stack Software Engineer (Python/Django)" />
+  <meta property="og:description" content="Backend systems that move money: payments, fraud detection, real-time analytics and AI/LLM. Madrid · remote (EU)." />
+  <meta property="og:url" content="https://www.a-robertdev.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --soft:#94a3b8;
+      --line:#e8eaef; --chip-bg:#f1f5f9; --chip-fg:#334155;
+      --accent:#4f46e5; --accent-strong:#4338ca; --body:#334155;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:#0b0f17; --fg:#e9ecf1; --muted:#94a3b8; --soft:#64748b;
+        --line:#1d2531; --chip-bg:#151b25; --chip-fg:#c7cedb;
+        --accent:#818cf8; --accent-strong:#a5b4fc; --body:#c0c8d4;
+      }
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background:var(--bg); color:var(--fg); line-height:1.6;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container { max-width:760px; margin:0 auto; padding:80px 28px 96px; }
+
+    /* Hero */
+    .badge {
+      display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600;
+      color:var(--accent); background:color-mix(in srgb, var(--accent) 10%, transparent);
+      padding:5px 12px; border-radius:999px; margin-bottom:18px;
+    }
+    .dot { width:7px; height:7px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 3px color-mix(in srgb,#22c55e 22%,transparent); }
+    h1 { font-size:clamp(33px,5.5vw,46px); font-weight:800; letter-spacing:-.025em; line-height:1.05; }
+    .role { font-size:18px; font-weight:600; margin-top:10px; }
+    .tag { color:var(--muted); margin-top:3px; font-weight:500; }
+    .loc { color:var(--soft); font-size:14px; margin-top:12px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:26px; }
+    .btn {
+      font:inherit; font-size:14px; font-weight:600; padding:10px 16px; border-radius:10px;
+      text-decoration:none; border:1px solid transparent; cursor:pointer; transition:all .15s ease;
+      display:inline-flex; align-items:center; gap:7px; line-height:1;
+    }
+    .btn-primary { background:var(--accent); color:#fff; }
+    .btn-primary:hover { background:var(--accent-strong); transform:translateY(-1px); }
+    @media (prefers-color-scheme: dark) { .btn-primary { color:#0b0f17; } }
+    .btn-ghost { background:transparent; color:var(--fg); border-color:var(--line); }
+    .btn-ghost:hover { border-color:var(--soft); }
+    #lang-toggle { font-size:13px; padding:8px 13px; }
+
+    /* Sections */
+    section { margin-top:52px; }
+    .label { font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
+    .about { font-size:17px; color:var(--body); }
+
+    .job { padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid var(--line); }
+    .job:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
+    .job-top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .job-role { font-weight:700; font-size:16.5px; }
+    .company { font-size:12.5px; font-weight:600; color:var(--chip-fg); background:var(--chip-bg); padding:4px 11px; border-radius:999px; white-space:nowrap; }
+    ul { list-style:none; margin-top:14px; display:flex; flex-direction:column; gap:9px; }
+    li { position:relative; padding-left:20px; color:var(--body); }
+    li::before { content:""; position:absolute; left:2px; top:9px; width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.7; }
+
+    .skill-group { margin-bottom:18px; }
+    .skill-group:last-child { margin-bottom:0; }
+    .skill-label { font-weight:600; font-size:14px; margin-bottom:9px; color:var(--fg); }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .chip { font-size:13px; background:var(--chip-bg); color:var(--chip-fg); padding:6px 12px; border-radius:9px; font-weight:500; }
+
+    .edu-top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .edu-role { font-weight:700; font-size:16px; }
+    .edu-sub { color:var(--muted); font-size:14.5px; margin-top:4px; }
+
+    footer { margin-top:60px; border-top:1px solid var(--line); padding-top:22px; color:var(--soft); font-size:13.5px; }
+
+    @media (max-width:560px) {
+      .container { padding:52px 20px 72px; }
+      .job-top, .edu-top { align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <span class="badge"><span class="dot"></span><span data-en="Open to remote roles (EU)" data-es="Disponible · Remoto (UE)">Open to remote roles (EU)</span></span>
+      <h1>Robert Ruben</h1>
+      <div class="role" data-en="Full-Stack Software Engineer" data-es="Ingeniero de Software Full-Stack">Full-Stack Software Engineer</div>
+      <div class="tag">Python · Django · Fintech</div>
+      <div class="loc" data-en="Madrid, Spain · Remote (EU)" data-es="Madrid, España · Remoto (UE)">Madrid, Spain · Remote (EU)</div>
+      <nav class="actions">
+        <a class="btn btn-primary" id="cv-link" href={cvDefault} target="_blank" rel="noopener" data-en="Download CV" data-es="Descargar CV">Download CV</a>
+        <a class="btn btn-ghost" href="mailto:robertruben98@gmail.com">Email</a>
+        <a class="btn btn-ghost" href="https://github.com/robertruben98" target="_blank" rel="noopener">GitHub</a>
+        <button class="btn btn-ghost" id="lang-toggle" type="button" aria-label="Toggle language">ES</button>
+      </nav>
+    </header>
+
+    <section>
+      <div class="label" data-en="About" data-es="Perfil">About</div>
+      <p class="about"
+        data-en="I build the backend systems that move money — payment orchestration, fraud detection and real-time financial analytics — primarily in Python/Django, with 10+ Django projects maintained over the years. I also ship production AI/LLM systems, and I work across the stack: backend, frontend (Angular) and infrastructure (AWS, Terraform, Docker), with a strong practice of TDD and security hardening."
+        data-es="Construyo el backend de sistemas que mueven dinero — orquestación de pagos, detección de fraude y analítica financiera en tiempo real — principalmente en Python/Django, con más de 10 proyectos Django mantenidos a lo largo de los años. También llevo a producción sistemas de IA/LLM, y cubro todo el stack: backend, frontend (Angular) e infraestructura (AWS, Terraform, Docker), con práctica sólida de TDD y hardening de seguridad."
+      >About…</p>
+    </section>
+
+    <section>
+      <div class="label" data-en="Experience" data-es="Experiencia">Experience</div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role" data-en="Full-Stack Software Engineer · Backend Python" data-es="Ingeniero de Software Full-Stack · Backend Python">Full-Stack Software Engineer · Backend Python</span>
+          <span class="company">Treew</span>
+        </div>
+        <ul>
+          <li data-en="Designed and maintained the core payment-processing platform (Django/DRF) unifying 50+ payment gateways behind a common processor layer, with 3D Secure and tokenization." data-es="Diseñé y mantuve la plataforma central de procesamiento de pagos (Django/DRF) que unifica más de 50 pasarelas tras una capa común de procesadores, con 3D Secure y tokenización.">…</li>
+          <li data-en="Built a fraud-detection microservice (Django) integrating multiple anti-fraud providers into a unified score, event-driven over Apache Kafka." data-es="Construí un microservicio de detección de fraude (Django) que integra múltiples proveedores anti-fraude en un scoring unificado, event-driven sobre Apache Kafka.">…</li>
+          <li data-en="Developed a real-time financial-analytics API (FastAPI, TimescaleDB) with resilient Kafka ingestion and asynchronous reporting." data-es="Desarrollé una API de analítica financiera en tiempo real (FastAPI, TimescaleDB) con ingesta resiliente desde Kafka y reportes asíncronos.">…</li>
+          <li data-en="Designed a NestJS orchestration hub over OAuth2 with 100% test coverage, and an AI agent-orchestration engine (ReAct loop, multi-provider LLMs)." data-es="Diseñé un hub de orquestación en NestJS sobre OAuth2 con 100% de cobertura de tests, y un motor de orquestación de agentes IA (bucle ReAct, LLMs multi-proveedor).">…</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role" data-en="Full-Stack Software Engineer" data-es="Ingeniero de Software Full-Stack">Full-Stack Software Engineer</span>
+          <span class="company">ITMX</span>
+        </div>
+        <ul>
+          <li data-en="Designed the REST architecture of a carbon-footprint platform (Django/DRF, PostgreSQL) with multi-tenant auth (2FA) and a digitally-signed reporting suite." data-es="Diseñé la arquitectura REST de una plataforma de huella de carbono (Django/DRF, PostgreSQL) con autenticación multi-tenant (2FA) y una suite de reportes con firma digital.">…</li>
+          <li data-en="Stabilized and evolved an inherited multi-currency crypto-fiat OTC exchange (Node.js, Nuxt/Vue): fixed trading-endpoint vulnerabilities and led the custody-provider migration." data-es="Estabilicé y evolucioné un exchange OTC cripto-fiat multi-divisa heredado (Node.js, Nuxt/Vue): corregí vulnerabilidades en endpoints de trading y lideré la migración del proveedor de custodia.">…</li>
+          <li data-en="Built a serverless AI document-extraction platform on AWS Lambda with multi-provider LLMs and infrastructure as code (Terraform)." data-es="Construí una plataforma serverless de extracción documental con IA en AWS Lambda con LLMs multi-proveedor e infraestructura como código (Terraform).">…</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role" data-en="Full-Stack Developer" data-es="Desarrollador Full-Stack">Full-Stack Developer</span>
+          <span class="company">Naroca</span>
+        </div>
+        <ul>
+          <li data-en="Developed the Angular frontend of a public-transport ticketing platform with a reactive, stepper-style purchase flow." data-es="Desarrollé el frontend en Angular de una plataforma de venta de tickets de transporte público con un flujo de compra reactivo tipo stepper.">…</li>
+          <li data-en="Integrated a third-party ticketing API and a 3D Secure payment flow; multi-language i18n and mobile-first responsive design." data-es="Integré una API de ticketing de terceros y un flujo de pago con 3D Secure; i18n multi-idioma y diseño responsive mobile-first.">…</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="label" data-en="Technical skills" data-es="Habilidades técnicas">Technical skills</div>
+      <div class="skill-group">
+        <div class="skill-label" data-en="Languages" data-es="Lenguajes">Languages</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Backend</div>
+        <div class="chips"><span class="chip">Django</span><span class="chip">Django REST Framework</span><span class="chip">FastAPI</span><span class="chip">NestJS</span><span class="chip">Node.js</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Frontend</div>
+        <div class="chips"><span class="chip">Angular</span><span class="chip">RxJS</span><span class="chip">TailwindCSS</span><span class="chip">Nuxt/Vue</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label" data-en="Data & infrastructure" data-es="Datos e infraestructura">Data & infrastructure</div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span><span class="chip">Apache Kafka</span><span class="chip">Celery</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Terraform</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label" data-en="AI & security" data-es="IA y seguridad">AI & security</div>
+        <div class="chips"><span class="chip">OpenAI</span><span class="chip">Anthropic</span><span class="chip">ReAct agents</span><span class="chip">MCP</span><span class="chip">OAuth2 / OIDC</span><span class="chip">JWT</span><span class="chip">pytest</span><span class="chip">TDD · CI/CD</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="label" data-en="Education" data-es="Educación">Education</div>
+      <div class="edu-top">
+        <span class="edu-role" data-en="BSc in Computer Engineering" data-es="Ingeniero Informático">BSc in Computer Engineering</span>
+        <span class="company">2017 – 2021</span>
+      </div>
+      <div class="edu-sub" data-en="Technological University of Havana &quot;José Antonio Echeverría&quot; (CUJAE) · Havana, Cuba" data-es="Universidad Tecnológica de La Habana &quot;José Antonio Echeverría&quot; (CUJAE) · La Habana, Cuba">Technological University of Havana (CUJAE) · Havana, Cuba</div>
+    </section>
+
+    <section>
+      <div class="label" data-en="Languages" data-es="Idiomas">Languages</div>
+      <div class="chips"><span class="chip" data-en="Spanish — native" data-es="Español — nativo">Spanish — native</span><span class="chip" data-en="English — advanced" data-es="Inglés — avanzado">English — advanced</span></div>
+    </section>
+
+    <footer>
+      <span data-en="Open to remote Senior / Staff backend roles across the EU." data-es="Abierto a roles remotos Senior / Staff de backend en la UE.">Open to remote Senior / Staff backend roles across the EU.</span>
+    </footer>
+  </main>
+
+  <script is:inline>
+    (function () {
+      var KEY = "lang";
+      var lang = localStorage.getItem(KEY) || "en";
+      function apply(l) {
+        document.documentElement.lang = l;
+        var nodes = document.querySelectorAll("[data-" + l + "]");
+        for (var i = 0; i < nodes.length; i++) {
+          var v = nodes[i].getAttribute("data-" + l);
+          if (v !== null) nodes[i].textContent = v;
+        }
+        var cv = document.getElementById("cv-link");
+        if (cv) cv.setAttribute("href", l === "es" ? "/cv-robert-ruben-es.pdf" : "/cv-robert-ruben-en.pdf");
+        var btn = document.getElementById("lang-toggle");
+        if (btn) btn.textContent = l === "en" ? "ES" : "EN";
+      }
+      apply(lang);
+      var t = document.getElementById("lang-toggle");
+      if (t) t.addEventListener("click", function () {
+        lang = lang === "en" ? "es" : "en";
+        localStorage.setItem(KEY, lang);
+        apply(lang);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: porfoliodev-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      cache_from:
+        - porfoliodev-app:latest
+    ports:
+      - 4321:80
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
