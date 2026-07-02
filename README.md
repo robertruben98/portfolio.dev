@@ -6,6 +6,7 @@ A fast, bilingual (ES/EN) personal portfolio website built with **Astro** and de
 
 <div align="center">
 
+[![CI](https://github.com/robertruben98/portfolio.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/robertruben98/portfolio.dev/actions/workflows/ci.yml)
 ![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat)
