@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config'
 
 import robotsTxt from "astro-robots-txt"
+import sitemap from "@astrojs/sitemap"
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    sitemap(),
     robotsTxt({
       sitemap: [
-        'https://www.a-robertdev.com/sitemap.xml'
+        'https://www.a-robertdev.com/sitemap-index.xml'
       ],
       policy: [
         {
