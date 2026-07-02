@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/inter'
 const cvDefault = "/cv-robert-ruben-en.pdf"
 ---
 
@@ -14,6 +15,8 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
   <meta property="og:title" content="Robert Ruben — Full-Stack Software Engineer (Python/Django)" />
   <meta property="og:description" content="Backend systems that move money: payments, fraud detection, real-time analytics and AI/LLM. Madrid · remote (EU)." />
   <meta property="og:url" content="https://www.a-robertdev.com/" />
+  <meta property="og:image" content="https://www.a-robertdev.com/avatar.jpg" />
+  <meta property="og:image:alt" content="Robert Ruben" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="es_ES" />
   <link rel="canonical" href="https://www.a-robertdev.com/" />
@@ -24,6 +27,7 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Robert Ruben — Backend Software Engineer (Python/Django)" />
   <meta name="twitter:description" content="Backend systems that move money: payments, fraud detection, real-time analytics and AI/LLM. Madrid · remote (EU)." />
+  <meta name="twitter:image" content="https://www.a-robertdev.com/avatar.jpg" />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
@@ -41,9 +45,6 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
     ],
     knowsAbout: ["Python", "Django", "FastAPI", "Payment systems", "Fraud detection", "Real-time analytics", "Apache Kafka", "AWS", "AI/LLM"]
   })} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --soft:#6b7280;
@@ -60,7 +61,7 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
     * { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
     body {
-      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family:"Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background:var(--bg); color:var(--fg); line-height:1.6;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
@@ -104,6 +105,19 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
     li { position:relative; padding-left:20px; color:var(--body); }
     li::before { content:""; position:absolute; left:2px; top:9px; width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.7; }
 
+    .avatar { width:84px; height:84px; border-radius:50%; object-fit:cover; margin-bottom:20px; border:1px solid var(--line); display:block; }
+
+    /* Selected work */
+    .proj { padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid var(--line); }
+    .proj:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
+    .proj-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+    .proj-name { font-weight:700; font-size:16px; color:var(--fg); text-decoration:none; }
+    .proj-name:hover { color:var(--accent); }
+    .proj-tech { font-size:12px; color:var(--soft); font-weight:500; white-space:nowrap; }
+    .proj-desc { color:var(--body); margin-top:6px; font-size:15px; }
+    .more-link { display:inline-block; margin-top:18px; font-size:14px; font-weight:600; color:var(--accent); text-decoration:none; }
+    .more-link:hover { color:var(--accent-strong); }
+
     .skill-group { margin-bottom:18px; }
     .skill-group:last-child { margin-bottom:0; }
     .skill-label { font-weight:600; font-size:14px; margin-bottom:9px; color:var(--fg); }
@@ -125,6 +139,7 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
 <body>
   <main class="container">
     <header>
+      <img class="avatar" src="/avatar.jpg" width="84" height="84" alt="Robert Ruben" fetchpriority="high" />
       <span class="badge"><span class="dot"></span><span data-en="Open to remote roles (EU)" data-es="Disponible · Remoto (UE)">Open to remote roles (EU)</span></span>
       <h1>Robert Ruben</h1>
       <div class="role" data-en="Full-Stack Software Engineer" data-es="Ingeniero de Software Full-Stack">Full-Stack Software Engineer</div>
@@ -184,6 +199,52 @@ const cvDefault = "/cv-robert-ruben-en.pdf"
           <li data-en="Integrated a third-party ticketing API and a 3D Secure payment flow; multi-language i18n and mobile-first responsive design." data-es="Integré una API de ticketing de terceros y un flujo de pago con 3D Secure; i18n multi-idioma y diseño responsive mobile-first.">…</li>
         </ul>
       </div>
+    </section>
+
+    <section>
+      <div class="label" data-en="Selected open-source" data-es="Open source destacado">Selected open-source</div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <a class="proj-name" href="https://github.com/robertruben98/coinbook-core" target="_blank" rel="noopener">coinbook-core ↗</a>
+          <span class="proj-tech">Django · Postgres · Celery</span>
+        </div>
+        <p class="proj-desc" data-en="Multi-asset double-entry crypto ledger with async blockchain reconciliation, request idempotency and row-level locking. 90 tests · 98% coverage." data-es="Ledger cripto multi-activo de doble entrada con reconciliación blockchain asíncrona, idempotencia y bloqueo por fila. 90 tests · 98% cobertura.">…</p>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <a class="proj-name" href="https://github.com/robertruben98/tokenslim" target="_blank" rel="noopener">tokenslim ↗</a>
+          <span class="proj-tech">Python · LLM</span>
+        </div>
+        <p class="proj-desc" data-en="Context-compression layer for LLM agents — compress tool outputs, logs and RAG before they hit the model. Reversible, local-first. Ships an MCP server and HTTP proxy." data-es="Capa de compresión de contexto para agentes LLM — comprime salidas de tools, logs y RAG antes de llegar al modelo. Reversible y local-first. Incluye servidor MCP y proxy HTTP.">…</p>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <a class="proj-name" href="https://github.com/robertruben98/search-hub" target="_blank" rel="noopener">search-hub ↗</a>
+          <span class="proj-tech">FastAPI · Elasticsearch</span>
+        </div>
+        <p class="proj-desc" data-en="Reusable multi-namespace search microservice: full-text relevance, typo tolerance, facets and per-tenant isolation behind one API." data-es="Microservicio de búsqueda multi-namespace reutilizable: relevancia full-text, tolerancia a typos, facetas y aislamiento por tenant tras una sola API.">…</p>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <a class="proj-name" href="https://github.com/robertruben98/pydynantic" target="_blank" rel="noopener">pydynantic ↗</a>
+          <span class="proj-tech">Python · DynamoDB · PyPI</span>
+        </div>
+        <p class="proj-desc" data-en="Single-table DynamoDB modelling for Python on Pydantic v2 — typed entities, key templates and GSIs. Published on PyPI." data-es="Modelado single-table de DynamoDB para Python sobre Pydantic v2 — entidades tipadas, plantillas de clave y GSIs. Publicado en PyPI.">…</p>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <a class="proj-name" href="https://github.com/robertruben98/onyx-ng" target="_blank" rel="noopener">onyx-ng ↗</a>
+          <span class="proj-tech">Angular · Design system</span>
+        </div>
+        <p class="proj-desc" data-en="Accessible, token-driven Angular 19 design system — 27 components, 100% coverage, with React and Vue ports." data-es="Design system Angular 19 accesible y dirigido por tokens — 27 componentes, 100% cobertura, con ports en React y Vue.">…</p>
+      </div>
+
+      <a class="more-link" href="https://github.com/robertruben98?tab=repositories" target="_blank" rel="noopener" data-en="See all repositories ↗" data-es="Ver todos los repositorios ↗">See all repositories ↗</a>
     </section>
 
     <section>
