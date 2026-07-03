@@ -1,4 +1,4 @@
-# porfolio.dev — Robert Ruben's Personal Portfolio
+# portfolio.dev — Robert Ruben's Personal Portfolio
 
 A fast, bilingual (ES/EN) personal portfolio website built with **Astro** and deployed to a self-hosted VPS via **Docker + nginx** with a fully automated **GitHub Actions CI/CD** pipeline.
 
